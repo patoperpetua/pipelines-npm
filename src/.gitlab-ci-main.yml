@@ -1,3 +1,5 @@
 include:
-  - local: '.gitlab-ci-test-dynamic.yml'
-  - local: './src/.gitlab-ci-test-static.yml'
+  - project: 'singletonsd/pipelines/npm'
+    file: '/src/.gitlab-ci-test-dynamic.yml'
+  - project: 'singletonsd/pipelines/npm'
+    file: '/src/.gitlab-ci-test-static.yml'

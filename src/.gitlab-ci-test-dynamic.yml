@@ -15,7 +15,7 @@ stages:
 before_script:
   - npm i
 
-test_dynamic:node:4:
+test_dynamic-node-4:
   image: node:4
   stage: test_dynamic
   allow_failure: true
