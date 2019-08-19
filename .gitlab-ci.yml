@@ -1,0 +1,38 @@
+image: alpine:3.7
+
+before_script:
+  - mkdir -p binaries
+  - curl -L https://github.com/Code0x58/gitlab-ci-validate/releases/download/v0.2.2/gitlab-ci-validate_linux_amd64 -o binaries/gitlab
+  - chmod +x gitlab
+
+stages:
+  - test
+  - deploy
+
+test:main:
+  stage: test
+  script:
+    - ./binaries/gitlab  src/.gitlab-ci-main.yml
+
+test:test-dynamic:
+  stage: test
+  script:
+    - ./binaries/gitlab  src/.gitlab-ci-test-dynamic.yml
+
+test:test-static:
+  stage: test
+  script:
+    - ./binaries/gitlab  src/.gitlab-ci-test-static.yml
+
+pages:
+  before_script:
+    - apk add --no-cache bash curl
+    - if [ "${CI_COMMIT_REF_NAME}" == "master" ]; then
+        export TARGET_FOLDER=public;
+      else
+        export TARGET_FOLDER=public/${CI_COMMIT_REF_NAME};
+      fi
+  script:
+    - rm -rf "${TARGET_FOLDER}"
+    - mkdir -p "${TARGET_FOLDER}"
+    - cp -r src/* "${TARGET_FOLDER}"

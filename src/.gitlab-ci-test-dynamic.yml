@@ -1,0 +1,124 @@
+image: node:8-alpine
+
+variables:
+  TEST_DYNAMIC_EXECUTE_ALL: ""
+  TEST_DYNAMIC_EXECUTE_4: ""
+  TEST_DYNAMIC_EXECUTE_6: ""
+  TEST_DYNAMIC_EXECUTE_7: ""
+  TEST_DYNAMIC_EXECUTE_8: ""
+  TEST_DYNAMIC_EXECUTE_10: ""
+  TEST_DYNAMIC_EXECUTE_12: ""
+
+stages:
+  - test_dynamic
+
+before_script:
+  - npm i
+
+test_dynamic:node:4:
+  image: node:4
+  stage: test_dynamic
+  allow_failure: true
+  except:
+    - schedules
+  script:
+    - npm test
+  only:
+    changes:
+      - config/**/*
+      - ./*.json
+      - src/**/*
+      - .gitlab-ci.yml
+    variables:
+      - $TEST_DYNAMIC_EXECUTE_ALL == "true"
+      - $TEST_DYNAMIC_EXECUTE_4 == "true"
+
+test_dynamic:6:
+  image: node:6-alpine
+  stage: test_dynamic
+  allow_failure: true
+  except:
+    - schedules
+  script:
+    - npm test
+  only:
+    changes:
+      - config/**/*
+      - ./*.json
+      - src/**/*
+      - .gitlab-ci.yml
+    variables:
+      - $TEST_DYNAMIC_EXECUTE_ALL == "true"
+      - $TEST_DYNAMIC_EXECUTE_6 == "true"
+
+test_dynamic:7:
+  image: node:7
+  stage: test_dynamic
+  allow_failure: true
+  except:
+    - schedules
+  script:
+    - npm test
+  only:
+    changes:
+      - config/**/*
+      - ./*.json
+      - src/**/*
+      - .gitlab-ci.yml
+    variables:
+      - $TEST_DYNAMIC_EXECUTE_ALL == "true"
+      - $TEST_DYNAMIC_EXECUTE_7 == "true"
+
+test_dynamic:8:
+  image: node:8-alpine
+  stage: test_dynamic
+  allow_failure: true
+  except:
+    - schedules
+  script:
+    - npm test
+  only:
+    changes:
+      - config/**/*
+      - ./*.json
+      - src/**/*
+      - .gitlab-ci.yml
+    variables:
+      - $TEST_DYNAMIC_EXECUTE_ALL == "true"
+      - $TEST_DYNAMIC_EXECUTE_8 == "true"
+
+test_dynamic:10:
+  image: node:6-alpine
+  stage: test_dynamic
+  allow_failure: true
+  except:
+    - schedules
+  script:
+    - npm test
+  only:
+    changes:
+      - config/**/*
+      - ./*.json
+      - src/**/*
+      - .gitlab-ci.yml
+    variables:
+      - $TEST_DYNAMIC_EXECUTE_ALL == "true"
+      - $TEST_DYNAMIC_EXECUTE_10 == "true"
+
+test_dynamic:12:
+  image: node:7
+  stage: test_dynamic
+  allow_failure: true
+  except:
+    - schedules
+  script:
+    - npm test
+  only:
+    changes:
+      - config/**/*
+      - ./*.json
+      - src/**/*
+      - .gitlab-ci.yml
+    variables:
+      - $TEST_DYNAMIC_EXECUTE_ALL == "true"
+      - $TEST_DYNAMIC_EXECUTE_12 == "true"

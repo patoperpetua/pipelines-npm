@@ -1,0 +1,3 @@
+include:
+  - local: '.gitlab-ci-test-dynamic.yml'
+  - local: './src/.gitlab-ci-test-static.yml'
