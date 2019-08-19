@@ -11,6 +11,8 @@ stages:
 
 test_static:lint:
   stage: test_static
+  before_script:
+    - npm i
   script:
     - npm run lint
   allow_failure: true
@@ -28,6 +30,8 @@ test_static:lint:
 
 test_static:audit:
   stage: test_static
+  before_script:
+    - npm i
   script:
     - npm audit
   allow_failure: true
@@ -45,6 +49,8 @@ test_static:audit:
 
 test_static:check:
   stage: test_static
+  before_script:
+    - npm i
   script:
     - npm run check
   allow_failure: true
