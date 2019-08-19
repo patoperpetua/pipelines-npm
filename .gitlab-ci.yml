@@ -37,4 +37,4 @@ pages:
   script:
     - rm -rf "${TARGET_FOLDER}"
     - mkdir -p "${TARGET_FOLDER}"
-    - cp -r src/.* "${TARGET_FOLDER}"
+    - cp -r src/.g* "${TARGET_FOLDER}"
