@@ -36,6 +36,14 @@ include:
     file: '/src/.gitlab-ci-******.yml'
 ```
 
+And also define the stages you want to use. It can be both or just one. Remember to include the one you want or main if you use both, like following:
+
+```yaml
+stages:
+  - test_dynamic
+  - test_static
+```
+
 ## TODO
 
 - [ ] Create docker image with gitlab linter.
