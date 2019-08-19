@@ -1,10 +1,10 @@
-image: alpine:3.7
+image: registry.gitlab.com/singletonsd/docker/gitlab-ci-validator/alpine-3.9:latest
 
-before_script:
-  - apk add --no-cache curl
-  - mkdir -p binaries
-  - curl -L https://github.com/Code0x58/gitlab-ci-validate/releases/download/v0.2.2/gitlab-ci-validate_linux_amd64 -o binaries/gitlab
-  - chmod +x binaries/gitlab
+# before_script:
+#   - apk add --no-cache curl
+#   - mkdir -p binaries
+#   - curl -L https://github.com/Code0x58/gitlab-ci-validate/releases/download/v0.2.2/gitlab-ci-validate_linux_amd64 -o binaries/gitlab
+#   - chmod +x binaries/gitlab
 
 stages:
   - test
@@ -13,22 +13,22 @@ stages:
 test:main:
   stage: test
   script:
-    - ./binaries/gitlab  src/.gitlab-ci-main.yml
+    - gitlab  src/.gitlab-ci-main.yml
 
 test:test-dynamic:
   stage: test
   script:
-    - ./binaries/gitlab  src/.gitlab-ci-test-dynamic.yml
+    - gitlab  src/.gitlab-ci-test-dynamic.yml
 
 test:test-static:
   stage: test
   script:
-    - ./binaries/gitlab  src/.gitlab-ci-test-static.yml
+    - gitlab  src/.gitlab-ci-test-static.yml
 
 pages:
   stage: deploy
   before_script:
-    - apk add --no-cache bash curl
+    # - apk add --no-cache bash curl
     - if [ "${CI_COMMIT_REF_NAME}" == "master" ]; then
         export TARGET_FOLDER=public;
       else
