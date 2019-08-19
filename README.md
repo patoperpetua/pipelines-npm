@@ -2,6 +2,8 @@
 
 This project contains templates for npm common jobs.
 
+> The **main repository** is hosted in [gitlab.com/singletonsd/pipelines/npm](https://gitlab.com/singletonsd/pipelines/npm.git) but it is automaticaly mirrored to [github.com/singletonsd](https://github.com/singletonsd/pipelines-npm.git), [github.com/patoperpetua](https://github.com/patoperpetua/pipelines-npm.git) and to [gitlab.com/patoperpetua](https://gitlab.com/patoperpetua/pipelines-npm.git). If you are in the Github page it may occur that is not updated to the last version.
+
 ## AVAILABLE FILES
 
 There are 2 files:
@@ -28,12 +30,43 @@ There are 2 files:
 
 ## HOW TO USE
 
-To use it, you can include them as following:
+To use it, you can include them as following (using repository aproach):
 
 ```yaml
 include:
   - project: 'singletonsd/pipelines/npm'
-    file: '/src/.gitlab-ci-******.yml'
+    file: '/src/.gitlab-ci-main.yml'
+  - project: 'singletonsd/pipelines/npm'
+    file: '/src/.gitlab-ci-test-dynamic.yml'
+  - project: 'singletonsd/pipelines/npm'
+    file: '/src/.gitlab-ci-static.yml'
+```
+
+Or using remote aproach over gitlab repo:
+
+```yaml
+include:
+  - remote: 'https://gitlab.com/singletonsd/pipelines/npm/raw/master/src/.gitlab-ci-main.yml'
+  - remote: 'https://gitlab.com/singletonsd/pipelines/npm/raw/master/src/.gitlab-ci-test-dynamic.yml'
+  - remote: 'https://gitlab.com/singletonsd/pipelines/npm/raw/master/src/.gitlab-ci-test-static.yml'
+```
+
+Or using remote aproach over gilab pages:
+
+```yaml
+include:
+  - remote: 'https://singletonsd.gitlab.io/pipelines/npm/.gitlab-ci-main.yml'
+  - remote: 'https://singletonsd.gitlab.io/singletonsd/pipelines/npm/.gitlab-ci-test-dynamic.yml'
+  - remote: 'https://singletonsd.gitlab.io/singletonsd/pipelines/npm/.gitlab-ci-test-static.yml'
+```
+
+Master branch is setup as root folder. To use an specific version, put the version name before the file name like:
+
+```yaml
+include:
+  - remote: 'https://singletonsd.gitlab.io/pipelines/npm/1.0.0/.gitlab-ci-main.yml'
+  - remote: 'https://singletonsd.gitlab.io/singletonsd/pipelines/npm/develop/.gitlab-ci-test-dynamic.yml'
+  - remote: 'https://singletonsd.gitlab.io/singletonsd/pipelines/npm/feature-new/.gitlab-ci-test-static.yml'
 ```
 
 And also define the stages you want to use. It can be both or just one. Remember to include the one you want or main if you use both, like following:
@@ -43,6 +76,10 @@ stages:
   - test_dynamic
   - test_static
 ```
+
+## DOCUMENTATION
+
+- [Gitlab CI - Includes](https://docs.gitlab.com/ee/ci/yaml/)
 
 ## TODO
 
