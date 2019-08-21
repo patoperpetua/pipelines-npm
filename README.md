@@ -83,8 +83,9 @@ stages:
 
 ## TODO
 
-- [ ] Create docker image with gitlab linter.
+- [X] Create docker image with gitlab linter.
 - [ ] Use a variable to select docker image node version.
+- [X] Create a script to test locally.
 
 ----------------------
 

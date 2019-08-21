@@ -1,6 +1,8 @@
-image: node:8-alpine
+image: "${TEST_STATIC_IMAGE_NAME}:${TEST_STATIC_IMAGE_TAG}"
 
 variables:
+  TEST_STATIC_IMAGE_NAME: "node"
+  TEST_STATIC_IMAGE_TAG: "8-alpine"
   TEST_STATIC_ALL: ""
   TEST_STATIC_LINT: ""
   TEST_STATIC_AUDIT: ""
