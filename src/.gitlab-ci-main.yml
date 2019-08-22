@@ -3,7 +3,11 @@ include:
     file: '/src/.gitlab-ci-test-dynamic.yml'
   - project: 'singletonsd/pipelines/npm'
     file: '/src/.gitlab-ci-test-static.yml'
+  - project: 'singletonsd/pipelines/npm'
+    file: '/src/.gitlab-ci-common.yml'
 
 stages:
-  - test_dynamic
+  - install
   - test_static
+  - build
+  - test_dynamic

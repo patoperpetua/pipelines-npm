@@ -1,0 +1,47 @@
+image: "${GLOBAL_IMAGE_NAME}:${GLOBAL_IMAGE_TAG}"
+
+variables:
+  NODE_COMMON_IMAGE_NAME: "${GLOBAL_IMAGE_NAME:-node}"
+  NODE_COMMON_IMAGE_TAG: "${GLOBAL_IMAGE_TAG:-8-alpine}"
+
+stages:
+  - install
+  - build
+
+install:
+  stage: install
+  before_script: []
+  script:
+    - npm install --no-optional
+  cache:
+    paths:
+      - node_modules/
+  artifacts:
+    paths:
+      - node_modules/
+  except:
+    - schedules
+  only:
+    changes:
+      - config/**/*
+      - ./*.json
+      - src/**/*
+      - .gitlab-ci.yml
+
+build:
+  stage: build
+  script:
+    - npm run build-all
+  cache: {}
+  artifacts:
+    name: "$CI_PROJECT_NAME-${CI_COMMIT_REF_NAME}-built"
+    paths:
+      - dist
+  except:
+    - schedules
+  only:
+    changes:
+      - config/**/*
+      - ./*.json
+      - src/**/*
+      - .gitlab-ci.yml

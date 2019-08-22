@@ -9,6 +9,11 @@ test:main:
   script:
     - gitlab  src/.gitlab-ci-main.yml
 
+test:common:
+  stage: test
+  script:
+    - gitlab  src/.gitlab-ci-common.yml
+
 test:test-dynamic:
   stage: test
   script:

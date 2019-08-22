@@ -6,7 +6,11 @@ This project contains templates for npm common jobs.
 
 ## AVAILABLE FILES
 
-There are 2 files:
+There are 3 files:
+
+- **common:** contains common jobs for any npm project/library. There are 2 jobs:
+  - **install:** executes npm install.
+  - **build:** executes npm run build-all.
 
 - **test-dynamic:** contains jobs for run test script in each node environment. To enable these jobs, you need to setup variables to true. There is one variable to run all test (it finishes with **ALL**):
   - **TEST_DYNAMIC_EXECUTE_ALL**: "true"
@@ -34,8 +38,13 @@ To use it, you can include them as following (using repository aproach):
 
 ```yaml
 include:
+  # The main files contains includes all files
   - project: 'singletonsd/pipelines/npm'
     file: '/src/.gitlab-ci-main.yml'
+
+  # Or you can include each file by your self.
+  - project: 'singletonsd/pipelines/npm'
+    file: '/src/.gitlab-ci-common.yml'
   - project: 'singletonsd/pipelines/npm'
     file: '/src/.gitlab-ci-test-dynamic.yml'
   - project: 'singletonsd/pipelines/npm'
@@ -47,6 +56,7 @@ Or using remote aproach over gitlab repo:
 ```yaml
 include:
   - remote: 'https://gitlab.com/singletonsd/pipelines/npm/raw/master/src/.gitlab-ci-main.yml'
+  - remote: 'https://gitlab.com/singletonsd/pipelines/npm/raw/master/src/.gitlab-ci-common.yml'
   - remote: 'https://gitlab.com/singletonsd/pipelines/npm/raw/master/src/.gitlab-ci-test-dynamic.yml'
   - remote: 'https://gitlab.com/singletonsd/pipelines/npm/raw/master/src/.gitlab-ci-test-static.yml'
 ```
@@ -56,6 +66,7 @@ Or using remote aproach over gilab pages:
 ```yaml
 include:
   - remote: 'https://singletonsd.gitlab.io/pipelines/npm/latest/.gitlab-ci-main.yml'
+  - remote: 'https://singletonsd.gitlab.io/pipelines/npm/latest/.gitlab-ci-common.yml'
   - remote: 'https://singletonsd.gitlab.io/singletonsd/pipelines/npm/latest/.gitlab-ci-test-dynamic.yml'
   - remote: 'https://singletonsd.gitlab.io/singletonsd/pipelines/npm/latest/.gitlab-ci-test-static.yml'
 ```
@@ -73,8 +84,10 @@ And also define the stages you want to use. It can be both or just one. Remember
 
 ```yaml
 stages:
-  - test_dynamic
+  - install
   - test_static
+  - build
+  - test_dynamic
 ```
 
 ## DOCUMENTATION

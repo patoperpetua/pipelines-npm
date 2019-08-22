@@ -14,7 +14,9 @@ stages:
 test_static:lint:
   stage: test_static
   before_script:
-    - npm i
+    - if [ ! -d "node_modules" ]; then
+        npm i;
+      fi
   script:
     - npm run lint
   allow_failure: true
@@ -33,7 +35,9 @@ test_static:lint:
 test_static:audit:
   stage: test_static
   before_script:
-    - npm i
+    - if [ ! -d "node_modules" ]; then
+        npm i;
+      fi
   script:
     - npm audit
   allow_failure: true
@@ -52,7 +56,9 @@ test_static:audit:
 test_static:check:
   stage: test_static
   before_script:
-    - npm i
+    - if [ ! -d "node_modules" ]; then
+        npm i;
+      fi
   script:
     - npm run check
   allow_failure: true

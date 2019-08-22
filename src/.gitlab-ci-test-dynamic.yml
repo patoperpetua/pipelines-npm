@@ -21,7 +21,10 @@ test_dynamic:node:4:
   except:
     - schedules
   before_script:
-    - npm i
+    - if [ "${TEST_DYNAMIC_IMAGE_NAME}:${TEST_DYNAMIC_IMAGE_TAG}" != "node:4" ]; then
+        rm -rf node_modules
+        npm i;
+      fi
   script:
     - npm test
   only:
@@ -41,7 +44,10 @@ test_dynamic:6:
   except:
     - schedules
   before_script:
-    - npm i
+    - if [ "${TEST_DYNAMIC_IMAGE_NAME}:${TEST_DYNAMIC_IMAGE_TAG}" != "node:6-alpine" ]; then
+        rm -rf node_modules
+        npm i;
+      fi
   script:
     - npm test
   only:
@@ -61,7 +67,10 @@ test_dynamic:7:
   except:
     - schedules
   before_script:
-    - npm i
+    - if [ "${TEST_DYNAMIC_IMAGE_NAME}:${TEST_DYNAMIC_IMAGE_TAG}" != "node:7" ]; then
+        rm -rf node_modules
+        npm i;
+      fi
   script:
     - npm test
   only:
@@ -81,7 +90,10 @@ test_dynamic:8:
   except:
     - schedules
   before_script:
-    - npm i
+    - if [ "${TEST_DYNAMIC_IMAGE_NAME}:${TEST_DYNAMIC_IMAGE_TAG}" != "node:8-alpine" ]; then
+        rm -rf node_modules
+        npm i;
+      fi
   script:
     - npm test
   only:
@@ -95,13 +107,16 @@ test_dynamic:8:
       - $TEST_DYNAMIC_EXECUTE_8 == "true"
 
 test_dynamic:10:
-  image: node:6-alpine
+  image: node:10-alpine
   stage: test_dynamic
   allow_failure: true
   except:
     - schedules
   before_script:
-    - npm i
+    - if [ "${TEST_DYNAMIC_IMAGE_NAME}:${TEST_DYNAMIC_IMAGE_TAG}" != "node:10-alpine" ]; then
+        rm -rf node_modules
+        npm i;
+      fi
   script:
     - npm test
   only:
@@ -115,13 +130,16 @@ test_dynamic:10:
       - $TEST_DYNAMIC_EXECUTE_10 == "true"
 
 test_dynamic:12:
-  image: node:7
+  image: node:12-alpine
   stage: test_dynamic
   allow_failure: true
   except:
     - schedules
   before_script:
-    - npm i
+    - if [ "${TEST_DYNAMIC_IMAGE_NAME}:${TEST_DYNAMIC_IMAGE_TAG}" != "node:12-alpine" ]; then
+        rm -rf node_modules
+        npm i;
+      fi
   script:
     - npm test
   only:
