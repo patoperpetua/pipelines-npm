@@ -32,7 +32,9 @@ There are 3 files:
     - **TEST_STATIC_AUDIT**: "true"
     - **TEST_STATIC_CHECK**: "true"
 
-## HOW TO USE
+## HOW TO
+
+### USE
 
 To use it, you can include them as following (using repository aproach):
 
@@ -88,6 +90,27 @@ stages:
   - test_static
   - build
   - test_dynamic
+```
+
+### TEST
+
+You can test your .gitlab-ci.yml files by executing the following:
+
+```bash
+curl -s https://singletonsd.gitlab.io/scripts/gitlab-ci/latest/gitlab-ci_lint_test_standalone.sh | bash /dev/stdin
+```
+
+That script contains the following options:
+
+```bash
+-h | --help: display help.
+-o | --only: the name of the file or folder to test.
+```
+
+Also you can download the script by:
+
+```bash
+curl -o gitlab-ci_lint_test_standalone.sh -L https://singletonsd.gitlab.io/scripts/gitlab-ci/latest/gitlab-ci_lint_test_standalone.sh
 ```
 
 ## DOCUMENTATION
