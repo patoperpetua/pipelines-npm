@@ -55,12 +55,12 @@ Or using remote aproach over gilab pages:
 
 ```yaml
 include:
-  - remote: 'https://singletonsd.gitlab.io/pipelines/npm/.gitlab-ci-main.yml'
-  - remote: 'https://singletonsd.gitlab.io/singletonsd/pipelines/npm/.gitlab-ci-test-dynamic.yml'
-  - remote: 'https://singletonsd.gitlab.io/singletonsd/pipelines/npm/.gitlab-ci-test-static.yml'
+  - remote: 'https://singletonsd.gitlab.io/pipelines/npm/latest/.gitlab-ci-main.yml'
+  - remote: 'https://singletonsd.gitlab.io/singletonsd/pipelines/npm/latest/.gitlab-ci-test-dynamic.yml'
+  - remote: 'https://singletonsd.gitlab.io/singletonsd/pipelines/npm/latest/.gitlab-ci-test-static.yml'
 ```
 
-Master branch is setup as root folder. To use an specific version, put the version name before the file name like:
+Master branch is setup as latest folder. To use an specific version, put the version name before the file name like:
 
 ```yaml
 include:
