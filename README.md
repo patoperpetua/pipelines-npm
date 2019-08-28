@@ -122,6 +122,7 @@ curl -o gitlab-ci_lint_test_standalone.sh -L https://singletonsd.gitlab.io/scrip
 - [X] Create docker image with gitlab linter.
 - [X] Use a variable to select docker image node version.
 - [X] Create a script to test locally.
+- [X] Use ci-cd template.
 
 ----------------------
 
