@@ -53,7 +53,7 @@ include:
     file: '/src/.gitlab-ci-static.yml'
 ```
 
-Or using remote aproach over gitlab repo:
+Or using remote approach over gitlab repo:
 
 ```yaml
 include:
@@ -63,7 +63,7 @@ include:
   - remote: 'https://gitlab.com/singletonsd/pipelines/npm/raw/master/src/.gitlab-ci-test-static.yml'
 ```
 
-Or using remote aproach over gilab pages:
+Or using remote approach over gilab pages:
 
 ```yaml
 include:
