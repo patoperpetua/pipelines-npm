@@ -36,8 +36,7 @@ There are 3 files:
 
 ### USE
 
-If you want to skip reading, you can copy and paste [this main example file](https://gitlab.com/singletonsd/pipelines/npm/raw/master/examples/.gitlab-ci-example-main.yml) or [this common example file](https://gitlab.com/singletonsd/pipelines/npm/raw/master/examples/.gitlab-ci-common-main.yml) and setup the variables.
-
+If you want to skip reading, you can copy and paste [this main example file](https://gitlab.com/singletonsd/pipelines/npm/raw/master/examples/.gitlab-ci-example-main.yml) or [this common example file](https://gitlab.com/singletonsd/pipelines/npm/raw/master/examples/.gitlab-ci-example-common.yml) and setup the variables.
 
 To use it, you can include them as following (using repository aproach):
 
