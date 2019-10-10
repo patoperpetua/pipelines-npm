@@ -1,0 +1,15 @@
+image: "${NG_APP_IMAGE_NAME}:${NG_APP_IMAGE_TAG}"
+
+# https://gitlab.com/singletonsd/pipelines/npm
+include:
+  - project: 'singletonsd/pipelines/npm'
+    file: '/src/.gitlab-ci-common.yml'
+
+variables:
+  GLOBAL_IMAGE_NAME: "node"
+  GLOBAL_IMAGE_TAG: "8-alpine"
+
+stages:
+  - install
+  - build
+

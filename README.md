@@ -36,6 +36,9 @@ There are 3 files:
 
 ### USE
 
+If you want to skip reading, you can copy and paste [this main example file](https://gitlab.com/singletonsd/pipelines/npm/raw/master/examples/.gitlab-ci-example-main.yml) or [this common example file](https://gitlab.com/singletonsd/pipelines/npm/raw/master/examples/.gitlab-ci-common-main.yml) and setup the variables.
+
+
 To use it, you can include them as following (using repository aproach):
 
 ```yaml
@@ -130,6 +133,7 @@ curl -s https://singletonsd.gitlab.io/scripts/gitlab-ci/latest/gitlab-ci_lint_ho
 - [X] Create docker image with gitlab linter.
 - [X] Use a variable to select docker image node version.
 - [X] Create a script to test locally.
+- [X] Add example files.
 - [X] Use ci-cd template.
 
 ----------------------
