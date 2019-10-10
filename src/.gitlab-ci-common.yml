@@ -3,14 +3,17 @@ image: "${NODE_COMMON_IMAGE_NAME}:${NODE_COMMON_IMAGE_TAG}"
 variables:
   NODE_COMMON_IMAGE_NAME: "${GLOBAL_IMAGE_NAME:-node}"
   NODE_COMMON_IMAGE_TAG: "${GLOBAL_IMAGE_TAG:-8-alpine}"
-
+  NODE_COMMON_INSTALL_BEFORE: "" #install apk binaries.
 stages:
   - install
   - build
 
 install:
   stage: install
-  before_script: []
+  before_script:
+    - if [ "${NODE_COMMON_INSTALL_BEFORE}" != "master" ]; then
+        apk add --no-cache ${NODE_COMMON_INSTALL_BEFORE};
+      fi
   script:
     - npm install --no-optional
   cache:

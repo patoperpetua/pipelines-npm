@@ -10,6 +10,7 @@ variables:
   GLOBAL_IMAGE_TAG: "8-alpine"
   TEST_STATIC_ALL: "true"
   TEST_DYNAMIC_ALL: "true"
+  NODE_COMMON_INSTALL_BEFORE: "" #install apk binaries.
 
 stages:
   - install
