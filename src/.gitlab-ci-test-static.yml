@@ -25,7 +25,7 @@ test_static:lint:
   only:
     changes:
       - config/**/*
-      - ./*.json
+      - "*.json"
       - src/**/*
       - .gitlab-ci.yml
     variables:
@@ -46,7 +46,7 @@ test_static:audit:
   only:
     changes:
       - config/**/*
-      - ./*.json
+      - "*.json"
       - src/**/*
       - .gitlab-ci.yml
     variables:
@@ -67,7 +67,7 @@ test_static:check:
   only:
     changes:
       - config/**/*
-      - ./*.json
+      - "*.json"
       - src/**/*
       - .gitlab-ci.yml
     variables:

@@ -27,7 +27,7 @@ install:
   only:
     changes:
       - config/**/*
-      - ./*.json
+      - "*.json"
       - src/**/*
       - .gitlab-ci.yml
 
@@ -45,6 +45,6 @@ build:
   only:
     changes:
       - config/**/*
-      - ./*.json
+      - "*.json"
       - src/**/*
       - .gitlab-ci.yml

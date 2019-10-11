@@ -30,7 +30,7 @@ test_dynamic:node:4:
   only:
     changes:
       - config/**/*
-      - ./*.json
+      - "*.json"
       - src/**/*
       - .gitlab-ci.yml
     variables:
@@ -53,7 +53,7 @@ test_dynamic:6:
   only:
     changes:
       - config/**/*
-      - ./*.json
+      - "*.json"
       - src/**/*
       - .gitlab-ci.yml
     variables:
@@ -76,7 +76,7 @@ test_dynamic:7:
   only:
     changes:
       - config/**/*
-      - ./*.json
+      - "*.json"
       - src/**/*
       - .gitlab-ci.yml
     variables:
@@ -99,7 +99,7 @@ test_dynamic:8:
   only:
     changes:
       - config/**/*
-      - ./*.json
+      - "*.json"
       - src/**/*
       - .gitlab-ci.yml
     variables:
@@ -122,7 +122,7 @@ test_dynamic:10:
   only:
     changes:
       - config/**/*
-      - ./*.json
+      - "*.json"
       - src/**/*
       - .gitlab-ci.yml
     variables:
@@ -145,7 +145,7 @@ test_dynamic:12:
   only:
     changes:
       - config/**/*
-      - ./*.json
+      - "*.json"
       - src/**/*
       - .gitlab-ci.yml
     variables:
