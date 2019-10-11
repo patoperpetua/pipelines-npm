@@ -22,7 +22,7 @@ test_dynamic:node:4:
     - schedules
   before_script:
     - if [ "${TEST_DYNAMIC_IMAGE_NAME}:${TEST_DYNAMIC_IMAGE_TAG}" != "node:4" ]; then
-        rm -rf node_modules
+        rm -rf node_modules;
         npm i;
       fi
   script:
@@ -45,7 +45,7 @@ test_dynamic:6:
     - schedules
   before_script:
     - if [ "${TEST_DYNAMIC_IMAGE_NAME}:${TEST_DYNAMIC_IMAGE_TAG}" != "node:6-alpine" ]; then
-        rm -rf node_modules
+        rm -rf node_modules;
         npm i;
       fi
   script:
@@ -68,7 +68,7 @@ test_dynamic:7:
     - schedules
   before_script:
     - if [ "${TEST_DYNAMIC_IMAGE_NAME}:${TEST_DYNAMIC_IMAGE_TAG}" != "node:7" ]; then
-        rm -rf node_modules
+        rm -rf node_modules;
         npm i;
       fi
   script:
@@ -91,7 +91,7 @@ test_dynamic:8:
     - schedules
   before_script:
     - if [ "${TEST_DYNAMIC_IMAGE_NAME}:${TEST_DYNAMIC_IMAGE_TAG}" != "node:8-alpine" ]; then
-        rm -rf node_modules
+        rm -rf node_modules;
         npm i;
       fi
   script:
@@ -114,7 +114,7 @@ test_dynamic:10:
     - schedules
   before_script:
     - if [ "${TEST_DYNAMIC_IMAGE_NAME}:${TEST_DYNAMIC_IMAGE_TAG}" != "node:10-alpine" ]; then
-        rm -rf node_modules
+        rm -rf node_modules;
         npm i;
       fi
   script:
@@ -137,7 +137,7 @@ test_dynamic:12:
     - schedules
   before_script:
     - if [ "${TEST_DYNAMIC_IMAGE_NAME}:${TEST_DYNAMIC_IMAGE_TAG}" != "node:12-alpine" ]; then
-        rm -rf node_modules
+        rm -rf node_modules;
         npm i;
       fi
   script:
