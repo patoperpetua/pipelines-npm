@@ -134,6 +134,7 @@ curl -s https://singletonsd.gitlab.io/scripts/gitlab-ci/latest/gitlab-ci_lint_ho
 - [X] Create a script to test locally.
 - [X] Add example files.
 - [X] Use ci-cd template.
+- [ ] User variables to define allow_failure.
 
 ----------------------
 
