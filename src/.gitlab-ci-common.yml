@@ -4,9 +4,11 @@ variables:
   NODE_COMMON_IMAGE_NAME: "${GLOBAL_IMAGE_NAME:-node}"
   NODE_COMMON_IMAGE_TAG: "${GLOBAL_IMAGE_TAG:-8-alpine}"
   NODE_COMMON_INSTALL_BEFORE: "" #install apk binaries.
+
 stages:
   - install
   - build
+  - package
 
 install:
   stage: install
@@ -43,6 +45,35 @@ build:
   except:
     - schedules
   only:
+    changes:
+      - config/**/*
+      - "*.json"
+      - src/**/*
+      - .gitlab-ci.yml
+
+package-docker:
+  image: docker:latest
+  stage: package
+  services:
+    - docker:dind
+  variables:
+    DOCKER_DRIVER: overlay2
+    DOCKER_BUILD_BASE_NAME: ${CI_REGISTRY_IMAGE}
+  before_script:
+    - echo "${REGISTRY_GITLAB_PASS}" | docker login registry.gitlab.com -u ${REGISTRY_GITLAB_USER} --password-stdin
+    - apk add --no-cache bash curl gawk git sed util-linux pciutils usbutils coreutils binutils findutils grep
+  script:
+    - if [ "${CI_COMMIT_REF_NAME}" == "master" ]; then
+        export DOCKER_BUILD_TAG=latest;
+      else
+        export DOCKER_BUILD_TAG=${CI_COMMIT_REF_NAME};
+      fi
+    - curl -o docker_build_multiple_images.sh -L https://singletonsd.gitlab.io/scripts/docker/latest/docker_build_multiple_images.sh
+    - chmod +x docker_build_multiple_images.sh
+    - ./docker_build_multiple_images.sh -c=${CI_COMMIT_SHA} -p
+  only:
+    variables:
+      - $NODE_COMMON_DOCKER_PACKAGE == "true"
     changes:
       - config/**/*
       - "*.json"

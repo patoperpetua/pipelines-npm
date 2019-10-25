@@ -8,9 +8,10 @@ This project contains templates for npm common jobs.
 
 There are 3 files:
 
-- **common:** contains common jobs for any npm project/library. There are 2 jobs:
+- **common:** contains common jobs for any npm project/library. There are 3 jobs:
   - **install:** executes npm install.
   - **build:** executes npm run build-all.
+  - **package-docker:** builds and push docker image. To enable this job set *NODE_COMMON_DOCKER_PACKAGE* to true. It uses [Singleton SD docker builder script](https://gitlab.com/singletonsd/scripts/docker).
 
 - **test-dynamic:** contains jobs for run test script in each node environment. To enable these jobs, you need to setup variables to true. There is one variable to run all test (it finishes with **ALL**):
   - **TEST_DYNAMIC_EXECUTE_ALL**: "true"

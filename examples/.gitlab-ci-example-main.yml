@@ -11,10 +11,11 @@ variables:
   TEST_STATIC_ALL: "true"
   TEST_DYNAMIC_ALL: "true"
   NODE_COMMON_INSTALL_BEFORE: "" #install apk binaries.
+  NODE_COMMON_DOCKER_PACKAGE: "true" # To create a push docker images.
 
 stages:
   - install
   - test_static
   - build
   - test_dynamic
-
+  - package

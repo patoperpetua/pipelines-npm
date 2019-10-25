@@ -11,3 +11,4 @@ stages:
   - test_static
   - build
   - test_dynamic
+  - package

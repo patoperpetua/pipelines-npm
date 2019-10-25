@@ -9,8 +9,9 @@ variables:
   GLOBAL_IMAGE_NAME: "node"
   GLOBAL_IMAGE_TAG: "8-alpine"
   NODE_COMMON_INSTALL_BEFORE: "" #install apk binaries.
+  NODE_COMMON_DOCKER_PACKAGE: "true" # To create a push docker images.
 
 stages:
   - install
   - build
-
+  - package
